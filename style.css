@@ -59,6 +59,7 @@ th {
 .report-table {
   width: 100%;
   margin-top: 2rem;
+  font-size: 14px;
 }
 
 .report-table th {
@@ -76,6 +77,24 @@ th {
   text-align: center;
   font-weight: lighter;
   padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .report-table {
+    font-size: 12px;
+  }
+  .report-table tr,
+  .report-table td,
+  .report-table th {
+    padding: 8px;
+    text-align: center !important;
+  }
+  .report-table th {
+    background-color: #fff6f7;
+  }
+  .report-table tr:nth-child(2) {
+    margin-bottom: 1rem;
+  }
 }
 
 td {
