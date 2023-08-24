@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="./favicon.svg" />
+    <title>50Fin Loan Eligibility Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 class="card-title">Check Loan Eligibility</h1>
+    <h4
+      style="text-align: center; margin: 0 1rem 1rem 1rem; font-size: 1.25rem"
+    >
+      Select from a list of approved mutual funds and specify the quantity.
+    </h4>
+    <p style="text-align: center; margin: 0 1rem 1rem 1rem">
+      Please note that Mutual funds in Demat form and ELSS/Tax saving Mutual
+      Funds cannot be pledged
+    </p>
+    <img src="loan.svg" class="loan-image" alt="loan" />
+    <div class="table-container">
+      <table class="table">
+        <thead id="thead">
+          <tr>
+            <th>Fund Name (ISIN)</th>
+            <th>Quantity</th>
+            <th style="visibility: hidden">Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr>
+            <td>
+              <select class="scrip-select form-control" style="width: 100%">
+                <option></option>
+              </select>
+            </td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                min="0"
+                step="0.01"
+                style="appearance: none; text-align: right"
+              />
+            </td>
+            <td class="text-right action-cell"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="add-icon-container">
+        <img src="add.svg" class="add-icon" alt="Add icon" />
+      </div>
+
+      <div class="loader" style="display: none">
+        <img src="loader.gif" alt="Loading..." />
+      </div>
+
+      <div class="max-loan-card" style="display: none">
+        <span>Maximum Loan Amount</span>
+        <span id="maxLoan"></span>
+      </div>
+
+      <p id="errorMessage" style="color: #fe2434"></p>
+
+      <table class="report-table d-none">
+        <thead>
+          <tr>
+            <th scope="col" style="text-align: center;"><strong>Key Differences / <br>Loan Type</strong></th>
+            <th scope="col"><strong>LAMF</strong> (Loan Against Mutual Funds)</th>
+            <th scope="col"><strong>Personal Loan</strong></th>
+            <th scope="col"><strong>Credit Card Loan</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><strong>Interest rate (per month)</strong></th>
+            <td>1.00%</td>
+            <td>1.50%</td>
+            <td>1.25%</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Interest Amount (per month)</strong></th>
+            <td class="lamf-interest">-</td>
+            <td class="pl-interest">-</td>
+            <td class="cc-interest">-</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>CIBIL</strong></th>
+            <td>Not Required</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Documentation</strong></th>
+            <td>Not Requried ~ 100% Digital</td>
+            <td>Required</td>
+            <td>Not Required</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Income Proof</strong></th>
+            <td>Not Required</td>
+            <td>Required (based on lender)</td>
+            <td>Not Required</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Interest Proof</strong></th>
+            <td>Simple Interest</td>
+            <td>Fixed EMI</td>
+            <td>Floating/Variable Interest</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Approval Time</strong></th>
+            <td>Instant 7Mins</td>
+            <td>3-5 Business Days</td>
+            <td>Within 24 Hours</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Loan Disbursement</strong></th>
+            <td>Within 2 Working Hours</td>
+            <td>Within 24 Hours</td>
+            <td>Within 24 Hours</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Loan Type</strong></th>
+            <td>Secured</td>
+            <td>Unsecured</td>
+            <td>Unsecured</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Processing Fee</strong></th>
+            <td>999/-</td>
+            <td>2% of Loan Amount</td>
+            <td>0.75% of Loan Amount</td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Pre-Closure Charges</strong></th>
+            <td><b>Zero</b> Pre-Closure Charges</td>
+            <td>
+              <b>2.5% to 3%</b> in First year<br><b>2% to 1%</b> between first & Second year<br>Source - Bajaj Finserv & LendingKart
+            </td>
+            <td>
+              <b>2.5% to 3%</b> in First year<br><b>2% to 1%</b> between first & Second year<br>Source - SBIN, HDFC, ICICI
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="d-flex justify-content-center">
+        <button id="submitBtn" class="submit-btn">calculate</button>
+        <button
+          class="download-btn d-none"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+        >
+          View Detailed Report
+        </button>
+      </div>
+
+      <p class="text-center mt-5 mb-2">Powered By</p>
+      <img src="./logo.svg" height="50" width="auto" />
+    </div>
+
+
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5 style="text-align: center; margin: 1rem 0 0.5rem 0; font-weight: 600;">Please Provide Basic Details</h3>
+              <p style="text-align: center;">to download a detailed report</p>
+            <form id="userInfoForm">
+              <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name*</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Enter your full name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number*</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              <p id="formErrorMessage" style="color: #fe2434; text-align: center;"></p>
+              <button
+              class="form-submit-btn"
+              style="background-color: #ED193B"
+              type="submit"
+            >
+              Download Report
+            </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0"></script>
+
+    <script type="application/javascript">
+      let maxLoan = $("#maxLoan");
+      let tableBody = $("#tableBody");
+      let formControl = $('.tableContainer').find(".form-control")
+      let scripSelect = $(".scrip-select");
+      let select_options = $(".select2-results__options");
+      let errorMessage = $("#errorMessage");
+      let formErrorMessage = $("#formErrorMessage");
+      let addIconContainer = $(".add-icon-container");
+      let loader = $($(".loader"));
+      let downloadBtn = $(".download-btn");
+      let maxLoanCard = $(".max-loan-card");
+      let scripJson = [];
+      let apiResponse = {};
+      let myModal = $("#myModal");
+
+      $(document).ready(function () {
+        $.getJSON("scrip.json", function (data) {
+          let scripData = data;
+          $.each(scripData, function (key, scrip) {
+            let item = {
+              name: scrip.name + " (" + scrip.isin + ")",
+              isin: scrip.isin,
+            };
+            scripJson.push(item);
+          });
+          initializeSelect2(scripSelect);
+        });
+      });
+
+      //   Initialize select2
+      function initializeSelect2(selectElement) {
+        $.each(scripJson, function (key, scrip) {
+          selectElement.append(new Option(scrip.name, scrip.isin));
+        });
+
+        selectElement
+          .select2({
+            placeholder: "Search name or ISIN",
+            dropdownAutoWidth: false,
+            width: "100%",
+          })
+          .on("select2:opening", function () {
+            select_options.addClass("max-width-option");
+            setTimeout(function () {
+              $(".select2-search__field")[0].focus();
+            }, 10);
+          })
+          .on("select2:close", function () {
+            select_options.removeClass("max-width-option");
+          });
+      }
+
+      // Add more rows
+      $(document).on("click", ".add-icon", function () {
+        let newRow = $(
+          '<tr><td><select class="scrip-select form-control" style="width: 100%"><option></option></select></td><td><input type="number" class="form-control" min="0" step="0.01" style="appearance: none; text-align: right" /></td><td class="text-right action-cell"><img src="remove.svg" class="remove-icon" alt="Remove icon"/></td></tr>'
+        );
+        tableBody.append(newRow);
+        initializeSelect2(newRow.find("select"));
+      });
+
+      // Remove a row
+      $(document).on("click", ".remove-icon", function () {
+        $(this).closest("tr").remove();
+      });
+
+      // Submit Button
+      $(document).on("click", "#submitBtn", function () {
+        let output = {};
+        let error = false;
+        let errorMsg = "";
+        loader.css("display", "block");
+        $(".add-icon").css("display", "none");
+        $(".remove-icon").css("display", "none");
+        output.isin_quantity = {};
+        errorMessage.text("");
+
+        tableBody.find("tr").each(function () {
+          let $row = $(this);
+          let isin = $row.find("select").val();
+          let quantityStr = $row.find("input").val();
+          let quantity = parseFloat(quantityStr);
+          let apiResponse = {};
+
+          if (!isin && !quantityStr) {
+            errorMsg = "Mutual fund not selected and quantity not entered";
+            error = true;
+          } else if (!isin) {
+            errorMsg = "Please select all the mutual funds";
+            error = true;
+          } else if (!quantityStr) {
+            errorMsg = "Enter a valid quantity for all mutual funds";
+            error = true;
+          } else if (isNaN(quantity) || quantity <= 0) {
+            errorMsg = "Enter a valid quantity for all mutual funds";
+            error = true;
+          } else {
+            if (output.isin_quantity[isin]) {
+              output.isin_quantity[isin] += quantity;
+            } else {
+              output.isin_quantity[isin] = quantity;
+            }
+          }
+        });
+
+        if (error) {
+          errorMessage.text(errorMsg);
+          $(".add-icon").css("display", "block");
+          $(".remove-icon").css("display", "block");
+          loader.css("display", "none");
+        } else {
+          $.ajax({
+            url: "https://fifty-fin-external-n77ca4jn5a-el.a.run.app/api/v1/generate_configuration/",
+            type: "POST",
+            data: JSON.stringify(output),
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+              apiResponse = response.data;
+              let totalPortfolioAmount = 0;
+              let totalMaxLoanAmount = 0;
+              $.each(response.data.Approved_ISIN, function (isin, details) {
+                let amount = details.quantity * details.price;
+                totalPortfolioAmount += details.amount;
+                totalMaxLoanAmount += details.max_loan_amount;
+              });
+
+              if (totalMaxLoanAmount < 25000) {
+                errorMessage.text(
+                  "Please add more mutual funds. Minimum portfolio value must be at least ₹50,000"
+                );
+                $(".add-icon").css("display", "block");
+                $(".remove-icon").css("display", "block");
+                loader.css("display", "none");
+                return;
+              }
+
+              maxLoanCard.css("display", "flex");
+              let lamfInterest = totalMaxLoanAmount * 1 / 100;
+              let plInterest = totalMaxLoanAmount * 1.5 / 100;
+              let ccInterest = totalMaxLoanAmount * 1.25 / 100;
+              $('.lamf-interest').text(lamfInterest);
+              $('.pl-interest').text(plInterest);
+              $('.cc-interest').text(ccInterest);
+              $('.report-table').removeClass('d-none');
+              scripSelect.attr("disabled", "true");
+              formControl.attr("disabled", "true");
+              maxLoan.text(formatCurrency(totalMaxLoanAmount));
+              $("#tableBody tr").each(function () {
+                $(this).find("td:last-child").remove();
+              });
+              $(".add-icon-container").remove();
+              $(".remove-icon").remove();
+              $("#submitBtn").addClass("d-none");
+              downloadBtn.removeClass("d-none");
+
+              confetti({
+                particleCount: 100,
+                spread: 100,
+                origin: { y: 0.6 },
+              });
+
+              loader.css("display", "none");
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              loader.css("display", "none");
+              errorMessage.text(
+                "Request failed: " + textStatus + ", " + errorThrown
+              );
+            },
+          });
+        }
+      });
+
+      function formatCurrency(amount) {
+        return new Intl.NumberFormat("en-IN", {
+          style: "currency",
+          currency: "INR",
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).format(amount);
+      }
+
+      $(document).on("click", ".download-btn", function () {
+        $("#myModal").modal("show");
+
+        let data = [];
+        let totalMaxLoanAmount = 0;
+        let totalPortfolioAmount = 0;
+
+        for (let key in apiResponse.Approved_ISIN) {
+          let item = apiResponse.Approved_ISIN[key];
+          item.price = item.price.toFixed(2);
+          item.quantity = item.quantity.toFixed(2);
+          item.loan_to_value_ratio = item.loan_to_value_ratio.toFixed(2);
+          item.max_loan_amount = item.max_loan_amount.toFixed(2);
+          data.push(item);
+          totalPortfolioAmount += parseFloat(item.quantity * item.price);
+          totalMaxLoanAmount += parseFloat(item.max_loan_amount);
+        }
+
+        totalPortfolioAmount = totalPortfolioAmount.toFixed(2);
+        totalMaxLoanAmount = totalMaxLoanAmount.toFixed(2);
+
+        localStorage.setItem("totalPortfolioAmount", totalPortfolioAmount);
+        localStorage.setItem("totalMaxLoanAmount", totalMaxLoanAmount);
+        localStorage.setItem("data", JSON.stringify(data));
+      });
+
+      function postToGoogleForm(fullName, phone, reportTab) {
+        var googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSfNrGZqo9pp4AtWtJrL03nrpqeP_IMjRkOeOQckMGabQ5yEFw/formResponse";
+        totalPortfolioAmount= localStorage.getItem("totalPortfolioAmount");
+        var dataToPost = {
+          "entry.2106344627": fullName,
+          "entry.468820478": phone ,
+          "entry.112365369": totalPortfolioAmount
+        };
+
+        $.ajax({
+          type: "POST",
+          url: googleFormURL,
+          data: dataToPost,
+          dataType: "json",
+          statusCode: {
+            0: function() {
+              reportTab.location.href = "./report/report.html";
+            },
+            200: function() {
+              reportTab.location.href = "./report/report.html";
+            }
+          }
+        });
+      }
+
+      $("#userInfoForm").submit(function (e) {
+        e.preventDefault();
+        formErrorMessage.text("");
+        let fullName = $("#fullName").val();
+        let phone = $("#phone").val();
+        localStorage.setItem("fullName", fullName);
+        localStorage.setItem("phone", phone);
+
+        if (fullName === "" || phone === "") {
+          formErrorMessage.text("Please fill all the details");
+          console.log("here");
+        }
+        if (phone.length < 10 || isNaN(phone)) {
+          formErrorMessage.text("Please enter a valid phone number")
+          console.log("here2");
+        }
+        
+        if (fullName !== "" && phone !== "" && phone.length >= 10 && !isNaN(phone)) {
+          var reportTab = window.open('./report/loading.html', '_blank');
+          postToGoogleForm(fullName, phone, reportTab);
+        }
+      });
+
+    </script>
+  </body>
+</html>

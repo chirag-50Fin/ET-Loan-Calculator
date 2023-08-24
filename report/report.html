@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="../favicon.svg" />
+    <title>50Fin Loan Eligibility Report</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+    />
+    <link type="text/css" rel="stylesheet" href="report.css" />
+  </head>
+  <body>
+  </div>
+    <div class="invoice-2 invoice-content">
+      <div class="container">
+        <div class="invoice-btn-section clearfix d-print-none">
+          <a
+            href="javascript:window.print()"
+            class="btn btn-lg btn-print"
+            style="color: #000000"
+          >
+            <i class="fa fa-download"></i> Print / Download Report
+          </a>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="invoice-inner clearfix">
+              <div class="invoice-info clearfix" id="invoice_wrapper">
+                <div class="invoice-headar">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="invoice-logo">
+                        <div class="logo">
+                          <img src="./logo.png" alt="logo" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="invoice-id">
+                        <div class="info">
+                          <h1 class="inv-header-1">LOAN ELIGIBILITY REPORT</h1>
+                          <p class="mb-0">
+                            Report Date: <span class="report-date"></span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="invoice-top">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="invoice-number mb-30">
+                        <h4 class="inv-title-1">Report By</h4>
+                        <h2 class="name">50Fin</h2>
+                        <p class="invo-addr-1">
+                          4th Floor, MSR Garuda Building,<br />
+                          Inside MS Ramaiah Campus, <br />
+                          Mathikere, Bengaluru, <br />
+                          Karnataka - 560054
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="invoice-number mb-30">
+                        <div class="invoice-number-inner">
+                          <h4 class="inv-title-1">For any Assistance</h4>
+                          <h2 class="name">CONTACT DETAILS</h2>
+                          <p class="invo-addr-1" style="text-align: end;">
+                            Monday - Saturday<br />
+                            9.00 AM - 6.00 PM<br />
+                            <a href="mailto:support@50fin.in"
+                              >support@50fin.in</a
+                            >
+                            <br />
+                            <a href="tel:+91960645610">+91 96064 5610</a><br />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="invoice-center">
+                  <div class="table-responsive">
+                    <table class="table mb-0 table-striped invoice-table">
+                      <thead class="bg-active clearfix">
+                        <tr class="tr">
+                          <th class="text-center">ISIN</th>
+                          <th class="text-center">Fund Name</th>
+                          <th class="text-center">Type</th>
+                          <th style="text-align: end">Quantity</th>
+                          <th style="text-align: end">Price</th>
+                          <th style="text-align: end">LTV</th>
+                          <th style="text-align: end">Amount</th>
+                          <th style="text-align: end">Max Loan Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="repayment-container">
+                      <h5 class="text-center" style="margin: 3rem 0 1rem 0; font-weight: 600; text-transform: uppercase;">Loan Repayment Timeline <span class="today-date" style="text-transform: none;"></span></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="download-app">
+                  <a href="https://play.google.com/store/apps/details?id=com.fiftyfin.app" target="_blank">
+                    <img src="../play-store.png" height="60">
+                  </a>
+                  <a href="https://apps.apple.com/in/app/50fin/id1669039122" target="_blank">
+                    <img src="../app-store.png" height="60">
+                  </a>
+                </div>
+                <div class="invoice-bottom">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="terms-conditions mb-30">
+                        <p class="text-center">
+                          For more details, please visit us at
+                          <a href="https://www.50fin.in" target="_blank">www.50fin.in</a
+                          >.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="invoice-contact clearfix">
+                  <div class="row g-0">
+                    <div class="col-sm-12">
+                      <div class="contact-info clearfix">
+                        <span class="d-flex"
+                          ><i class="fa fa-ban"></i>NO CIBIL CHECK</span
+                        >
+                        <span class="d-flex"
+                          ><i class="fa fa-clock"></i>2 HOUR DISBURSAL</span
+                        >
+                        <span class="mr-0 d-flex d-none-580"
+                          ><i class="fa fa-ban"></i>ZERO PRE-CLOSURE CHARGES</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jspdf.min.js"></script>
+    <script src="html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/vfs_fonts.js"></script>
+    <script src="report.js"></script>
+
+    <script>
+      var totalPortfolioAmount = localStorage.getItem("totalPortfolioAmount");
+      var totalMaxLoanAmount = localStorage.getItem("totalMaxLoanAmount");
+      var data = JSON.parse(localStorage.getItem("data"));
+      var interestRate = 0.12;
+
+      function getFormattedNumber(amount) {
+          return new Intl.NumberFormat("en-IN", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+          }).format(amount);
+      }
+
+      function getFormattedAmount(amount) {
+          return (
+              "₹" +
+              new Intl.NumberFormat("en-IN", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+              }).format(amount)
+          );
+      }
+
+      function getFormattedDate() {
+          const currentDate = new Date();
+          const day = currentDate.getDate();
+          const month = currentDate.getMonth() + 1;
+          const year = currentDate.getFullYear();
+
+          const formattedDay = day < 10 ? `0${day}` : day;
+          const formattedMonth = month < 10 ? `0${month}` : month;
+
+          const formattedDate = `${formattedDay}/${formattedMonth}/${year}`;
+          return formattedDate;
+      }
+
+      const todayDate = getFormattedDate();
+      document.querySelector(".report-date").textContent = todayDate;
+      document.querySelector(".today-date").textContent = '(Based on ' + todayDate + ')';
+      var tableBody = document.querySelector(".invoice-table tbody");
+
+      data.forEach(function(item) {
+          var row = document.createElement("tr");
+
+          var isinCell = document.createElement("td");
+          isinCell.className = "text-center";
+          isinCell.textContent = item.isin;
+          row.appendChild(isinCell);
+
+          var nameCell = document.createElement("td");
+          nameCell.className = "text-center";
+          nameCell.textContent = item.name;
+          row.appendChild(nameCell);
+
+          var subTypeCell = document.createElement("td");
+          subTypeCell.className = "text-center";
+          subTypeCell.textContent = item.scrip_sub_type;
+          row.appendChild(subTypeCell);
+
+          var quantityCell = document.createElement("td");
+          quantityCell.style.textAlign = "end";
+          quantityCell.textContent = getFormattedNumber(item.quantity);
+          row.appendChild(quantityCell);
+
+          var priceCell = document.createElement("td");
+          priceCell.style.textAlign = "end";
+          priceCell.textContent = getFormattedAmount(item.price);
+          row.appendChild(priceCell);
+
+          var ltvRatioCell = document.createElement("td");
+          ltvRatioCell.style.textAlign = "end";
+          ltvRatioCell.textContent = item.loan_to_value_ratio;
+          row.appendChild(ltvRatioCell);
+
+          var amountCell = document.createElement("td");
+          amountCell.style.textAlign = "end";
+          amountCell.textContent = getFormattedAmount(item.price * item.quantity);
+          row.appendChild(amountCell);
+
+          var maxLoanAmountCell = document.createElement("td");
+          maxLoanAmountCell.style.textAlign = "end";
+          maxLoanAmountCell.textContent = getFormattedAmount(
+              item.max_loan_amount
+          );
+          row.appendChild(maxLoanAmountCell);
+          tableBody.appendChild(row);
+      });
+
+      var lastRow = document.createElement("tr");
+      lastRow.classList.add("tr2");
+
+      for (var i = 0; i < 5; i++) {
+          var emptyCell = document.createElement("td");
+          lastRow.appendChild(emptyCell);
+      }
+      var totalLoanAmountCell = document.createElement("td");
+      totalLoanAmountCell.className = "last-row active-color";
+      totalLoanAmountCell.colSpan = "2";
+      totalLoanAmountCell.textContent = getFormattedAmount(totalPortfolioAmount);
+      lastRow.appendChild(totalLoanAmountCell);
+
+
+      var loanAmountValueCell = document.createElement("td");
+      loanAmountValueCell.className = "last-row-value active-color";
+      loanAmountValueCell.textContent = getFormattedAmount(totalMaxLoanAmount);
+      lastRow.appendChild(loanAmountValueCell);
+
+      var tableBody = document.querySelector(".invoice-table tbody");
+      tableBody.appendChild(lastRow);
+
+      function formatDate(date) {
+          const options = {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric'
+          };
+          return date.toLocaleDateString('en-US', options);
+      }
+
+      function computeRepaymentTimeline(loanAmount, interestRatePerAnnum, startDateStr) {
+          const monthlyInterestRate = interestRatePerAnnum / 12;
+
+          let today = new Date(startDateStr);
+          let currentYear = today.getFullYear();
+          let firstPaymentMonth;
+          let interestYear = today.getFullYear();
+          let previousMonth;
+
+          if (today.getDate() <= 10) {
+              firstPaymentMonth = today.getMonth() + 1;
+          } else {
+              firstPaymentMonth = today.getMonth() + 2;
+          }
+
+          if (firstPaymentMonth > 11) {
+              firstPaymentMonth -= 12;
+              currentYear += 1;
+          }
+
+          const repayments = {};
+
+          for (let i = 0; i < 12; i++) {
+              const paymentDate = new Date(currentYear, firstPaymentMonth, 7);
+              const nextYearAnniversary = new Date(today);
+              nextYearAnniversary.setFullYear(nextYearAnniversary.getFullYear() + 1);
+
+              if (paymentDate > nextYearAnniversary) break;
+
+              previousMonth = firstPaymentMonth - 1;
+              if (previousMonth < 0) {
+                  previousMonth = 11;
+                  interestYear = currentYear - 1;
+              }
+
+              const daysInMonth = (new Date(currentYear, firstPaymentMonth, 0)).getDate();
+              let interestAmount;
+
+              if (i === 0) {
+                  if (today.getDate() <= 10) {
+                      const daysInCurrentMonth = daysInMonth - today.getDate() + 1;
+                      const dailyInterestRate = monthlyInterestRate / daysInMonth;
+                      interestAmount = loanAmount * dailyInterestRate * daysInCurrentMonth;
+                  } else {
+                      const daysInCurrentMonth = daysInMonth - today.getDate() + 1;
+                      const dailyInterestRateCurrentMonth = monthlyInterestRate / daysInMonth;
+                      const interestAmountCurrentMonth = loanAmount * dailyInterestRateCurrentMonth * daysInCurrentMonth;
+
+                      const daysInNextMonth = (new Date(today.getFullYear(), today.getMonth() + 2, 0)).getDate();
+                      const dailyInterestRateNextMonth = monthlyInterestRate / daysInNextMonth;
+                      const interestAmountNextMonth = loanAmount * dailyInterestRateNextMonth * daysInNextMonth;
+
+                      interestAmount = interestAmountCurrentMonth + interestAmountNextMonth;
+                  }
+              } else {
+                  const dailyInterestRate = monthlyInterestRate / daysInMonth;
+                  interestAmount = loanAmount * dailyInterestRate * daysInMonth;
+              }
+
+              const paymentDateStr = paymentDate.toLocaleDateString('en-US', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric'
+              });
+              repayments[paymentDateStr] = Math.round(interestAmount * 100) / 100;
+
+              firstPaymentMonth += 1;
+              if (firstPaymentMonth > 11) {
+                  firstPaymentMonth -= 12;
+                  currentYear += 1;
+              }
+          }
+
+          previousMonth = today.getMonth() - 1;
+          if (previousMonth < 0) {
+              previousMonth = 11;
+              interestYear = today.getFullYear() - 1;
+          }
+          const daysInPreviousMonth = (new Date(interestYear, previousMonth + 1, 0)).getDate();
+          const previousMonthInterest = loanAmount * monthlyInterestRate / daysInPreviousMonth * daysInPreviousMonth;
+
+          const lastInterestDays = today.getDate();
+          const daysInAnniversaryMonth = (new Date(today.getFullYear() + 1, today.getMonth(), 0)).getDate();
+          const lastDailyInterestRate = monthlyInterestRate / daysInAnniversaryMonth;
+          const lastMonthInterest = loanAmount * lastDailyInterestRate * lastInterestDays;
+
+          const anniversaryPaymentDate = new Date(today);
+          anniversaryPaymentDate.setFullYear(anniversaryPaymentDate.getFullYear() + 1);
+          const anniversaryPaymentDateStr = anniversaryPaymentDate.toLocaleDateString('en-US', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+          });
+
+          if (today.getDate() <= 7) {
+              if (repayments[anniversaryPaymentDateStr]) {
+                  repayments[anniversaryPaymentDateStr] += (Math.round(lastMonthInterest * 100) / 100 + Math.round(previousMonthInterest * 100) / 100 + loanAmount);
+              } else {
+                  repayments[anniversaryPaymentDateStr] = (Math.round(lastMonthInterest * 100) / 100 + Math.round(previousMonthInterest * 100) / 100 + loanAmount);
+              }
+          } else {
+              repayments[anniversaryPaymentDateStr] = Math.round(lastMonthInterest * 100) / 100 + loanAmount;
+          }
+
+          return repayments;
+      }
+
+      let startDate = new Date();
+
+      let repaymentData = computeRepaymentTimeline(parseFloat(totalMaxLoanAmount), parseFloat(interestRate), startDate);
+
+      var tableDiv = document.createElement('div');
+      tableDiv.className = "table-responsive";
+      var table = document.createElement('table');
+      table.className = "table mb-0 table-striped invoice-table";
+      var thead = document.createElement('thead');
+      thead.className = "bg-active";
+      var tr = document.createElement('tr');
+      tr.className = "tr";
+
+      var headers = ["Date", "Repayment Amount"];
+
+      headers.forEach(function(header) {
+          var th = document.createElement('th');
+          th.className = "text-center";
+          th.textContent = header;
+          tr.appendChild(th);
+      });
+
+      thead.appendChild(tr);
+      table.appendChild(thead);
+
+      var tbody = document.createElement('tbody');
+      for (var date in repaymentData) {
+          var tr = document.createElement('tr');
+          var dateCell = document.createElement('td');
+          dateCell.className = "text-center";
+          dateCell.textContent = date;
+          tr.appendChild(dateCell);
+
+          var amountCell = document.createElement('td');
+          amountCell.className = "text-center";
+          amountCell.textContent = getFormattedAmount(repaymentData[date]);
+          tr.appendChild(amountCell);
+          tbody.appendChild(tr);
+      }
+
+      table.appendChild(tbody);
+      tableDiv.appendChild(table);
+
+      document.querySelector('.repayment-container').appendChild(tableDiv);
+    </script>
+  </body>
+</html>
