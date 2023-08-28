@@ -20,7 +20,7 @@
 			class="sub-title"
 			>
 			Select from a list of approved mutual funds and specify the quantity. <br><br>
-			With <b>50Fin</b>, Secure loans at <b>1% simple interest</b> per month in just <b>7 mins</b> without liquidating your Mutual Funds
+			With <b>50Fin</b>, secure loans without liquidating your Mutual Funds in just <b>7 minutes</b>
 		</h4>
 		<img src="loan.svg" class="loan-image" alt="loan" />
 		<p style="text-align: center; margin: 0 1rem 1rem 1rem">
@@ -386,8 +386,10 @@
 			});
 
 			function pmt(loanAmount, monthlyInterestRate) {
-				let numerator = loanAmount * monthlyInterestRate * Math.pow((1 + monthlyInterestRate), 12);
-				let denominator = Math.pow((1 + monthlyInterestRate), 12) - 1;
+				monthlyInterestRate = monthlyInterestRate/100
+				let numerator = (loanAmount * monthlyInterestRate) * Math.pow((1 + monthlyInterestRate), 12)
+				let denominator = Math.pow((1 + monthlyInterestRate), 12) - 1
+				console.log(numerator, denominator)
 				let result = numerator / denominator;
 				return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(result);;
 }
