@@ -132,7 +132,7 @@
 					</tr>
 					<tr>
 						<th scope="row"><strong>Processing Fee</strong></th>
-						<td>999/-</td>
+						<td>₹999/-</td>
 						<td>2% of Loan Amount</td>
 						<td>0.75% of Loan Amount</td>
 					</tr>
@@ -226,7 +226,7 @@
 						<th colspan="3"><b>Processing Fee</b></th>
 					</tr>
 					<tr>
-						<td>999/-</td>
+						<td>₹999/-</td>
 						<td>2% of Loan Amount</td>
 						<td>0.75% of Loan Amount</td>
 					</tr>
@@ -451,9 +451,9 @@
 			        let lamfInterest = Math.floor(totalMaxLoanAmount * 1 / 100);
 			        let plInterest = Math.floor(totalMaxLoanAmount * 1.5 / 100);
 			        let ccInterest = Math.floor(totalMaxLoanAmount * 1.25 / 100);
-			        $('.lamf-interest').text(lamfInterest);
-			        $('.pl-interest').text(plInterest);
-			        $('.cc-interest').text(ccInterest);
+			        $('.lamf-interest').text('₹' + lamfInterest);
+			        $('.pl-interest').text('₹' + plInterest);
+			        $('.cc-interest').text('₹' + ccInterest);
 			        if (window.innerWidth < 768) {
 			          $(".report-table-phone").removeClass('d-none');
 			        } else {
