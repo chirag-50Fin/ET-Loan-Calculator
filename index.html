@@ -255,7 +255,7 @@
 		</table>
 		<div class="d-flex justify-content-center">
 			<button id="submitBtn" class="submit-btn">Calculate</button>
-			<a href="https://economictimes.50fin.in/signup">
+			<a href="https://economictimes.50fin.in/signup" target="_blank">
 				<button
 					class="download-btn d-none"
 					type="button"
@@ -514,80 +514,6 @@
 			    maximumFractionDigits: 0,
 			  }).format(amount);
 			}
-			
-			$(document).on("click", ".download-btn", function () {
-			  $("#myModal").modal("show");
-			
-			  let data = [];
-			  let totalMaxLoanAmount = 0;
-			  let totalPortfolioAmount = 0;
-			
-			  for (let key in apiResponse.Approved_ISIN) {
-			    let item = apiResponse.Approved_ISIN[key];
-			    item.price = item.price.toFixed(2);
-			    item.quantity = item.quantity.toFixed(2);
-			    item.loan_to_value_ratio = item.loan_to_value_ratio.toFixed(2);
-			    item.max_loan_amount = item.max_loan_amount.toFixed(2);
-			    data.push(item);
-			    totalPortfolioAmount += parseFloat(item.quantity * item.price);
-			    totalMaxLoanAmount += parseFloat(item.max_loan_amount);
-			  }
-			
-			  totalPortfolioAmount = totalPortfolioAmount.toFixed(2);
-			  totalMaxLoanAmount = totalMaxLoanAmount.toFixed(2);
-			
-			  localStorage.setItem("totalPortfolioAmount", totalPortfolioAmount);
-			  localStorage.setItem("totalMaxLoanAmount", totalMaxLoanAmount);
-			  localStorage.setItem("data", JSON.stringify(data));
-			});
-			
-			function postToGoogleForm(fullName, phone, reportTab) {
-			  var googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSfNrGZqo9pp4AtWtJrL03nrpqeP_IMjRkOeOQckMGabQ5yEFw/formResponse";
-			  totalPortfolioAmount= localStorage.getItem("totalPortfolioAmount");
-			  var dataToPost = {
-			    "entry.2106344627": fullName,
-			    "entry.468820478": phone ,
-			    "entry.112365369": totalPortfolioAmount
-			  };
-			
-			  $.ajax({
-			    type: "POST",
-			    url: googleFormURL,
-			    data: dataToPost,
-			    dataType: "json",
-			    statusCode: {
-			      0: function() {
-			        reportTab.location.href = "./report/report.html";
-			      },
-			      200: function() {
-			        reportTab.location.href = "./report/report.html";
-			      }
-			    }
-			  });
-			}
-			
-			$("#userInfoForm").submit(function (e) {
-			  e.preventDefault();
-			  formErrorMessage.text("");
-			  let fullName = $("#fullName").val();
-			  let phone = $("#phone").val();
-			  localStorage.setItem("fullName", fullName);
-			  localStorage.setItem("phone", phone);
-			
-			  if (fullName === "" || phone === "") {
-			    formErrorMessage.text("Please fill all the details");
-			    console.log("here");
-			  }
-			  if (phone.length < 10 || isNaN(phone)) {
-			    formErrorMessage.text("Please enter a valid phone number")
-			    console.log("here2");
-			  }
-			  
-			  if (fullName !== "" && phone !== "" && phone.length >= 10 && !isNaN(phone)) {
-			    var reportTab = window.open('./report/loading.html', '_blank');
-			    postToGoogleForm(fullName, phone, reportTab);
-			  }
-			});
 			
 		</script>
 	</body>
