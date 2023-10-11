@@ -4,6 +4,7 @@
 		<link rel="icon" type="image/png" href="./favicon.svg" />
 		<title>50Fin Loan Eligibility Calculator</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800' rel='stylesheet'>
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
@@ -19,14 +20,8 @@
 		<h4
 			class="sub-title"
 			>
-			Select from a list of approved mutual funds and specify the quantity. <br><br>
-			With <b>50Fin</b>, secure loans without liquidating your Mutual Funds in just <b>7 minutes</b>
+			Select from a list of approved Mutual Funds<br>
 		</h4>
-		<img src="loan.svg" class="loan-image" alt="loan" />
-		<p style="text-align: center; margin: 0 1rem 1rem 1rem">
-			<b>Note:</b> Mutual funds in Demat form and ELSS/Tax saving Mutual
-			Funds cannot be pledged
-		</p>
 		<div class="table-container">
 			<table class="table">
 				<thead id="thead">
@@ -49,7 +44,7 @@
 								class="form-control"
 								min="0"
 								step="0.01"
-								style="appearance: none; text-align: right"
+								style="appearance: none; text-align: right; min-width: 72px;"
 								/>
 						</td>
 						<td class="text-right action-cell"></td>
@@ -152,10 +147,10 @@
 			<table class="report-table report-table-phone d-none">
 				<tbody>
 					<tr style="border: none;">
-						<th colspan="3" style="font-size: 16px; padding: 16px; border: none; background-color: #fce8eb;"><b>Key Differences / Loan Type</b></th>
+						<th colspan="3" style="font-size: 14px; padding: 8px; border: none; background-color: #fce8eb;"><b>Key Differences / Loan Type</b></th>
 					</tr>
 					<tr>
-						<th style="width: 35%;"><strong>LAMF</strong> (Loan Against Mutual Funds)</th>
+						<th style="width: 37%;"><strong>LAMF</strong> (Loan Against Mutual Funds)</th>
 						<th><strong>Personal Loan</strong></th>
 						<th><strong>Credit Card Loan</strong></th>
 					</tr>
@@ -173,7 +168,7 @@
 					<tr>
 						<td>Simple Interest</td>
 						<td>Fixed EMI</td>
-						<td>Floating/Variable Interest</td>
+						<td>Floating or Variable Interest</td>
 					</tr>
 					<tr>
 						<th colspan="3"><b>Monthly Payment</b></th>
@@ -254,7 +249,7 @@
 		</div>
 		</table>
 		<div class="d-flex justify-content-center">
-			<button id="submitBtn" class="submit-btn">Calculate</button>
+			<button id="submitBtn" class="submit-btn" style="margin-bottom: 4px;">Calculate</button>
 			<a href="https://economictimes.50fin.in/signup" target="_blank">
 				<button
 					class="download-btn d-none"
@@ -264,55 +259,13 @@
 				</button>
 			</a>
 		</div>
-		<p class="text-center mt-5 mb-2">Powered By</p>
-		<img src="./logo.png" height="70" width="auto" />
-		</div>
-		<div
-			class="modal fade"
-			id="myModal"
-			tabindex="-1"
-			aria-labelledby="exampleModalLabel"
-			aria-hidden="true"
-			>
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-body">
-						<h5 style="text-align: center; margin: 1rem 0 0.5rem 0; font-weight: 600;">
-						Please Provide Basic Details</h3>
-						<p style="text-align: center;">to download a detailed report</p>
-						<form id="userInfoForm">
-							<div class="mb-3">
-								<label for="fullName" class="form-label">Full Name*</label>
-								<input
-									type="text"
-									class="form-control"
-									id="fullName"
-									name="fullName"
-									placeholder="Enter your full name"
-									/>
-							</div>
-							<div class="mb-3">
-								<label for="phone" class="form-label">Phone Number*</label>
-								<input
-									type="tel"
-									class="form-control"
-									id="phone"
-									name="phone"
-									placeholder="Enter your phone number"
-									/>
-							</div>
-							<p id="formErrorMessage" style="color: #fe2434; text-align: center;"></p>
-							<button
-								class="form-submit-btn"
-								style="background-color: #ED193B"
-								type="submit"
-								>
-							Download Report
-							</button>
-						</form>
-					</div>
-				</div>
-			</div>
+		<p class="text-center mt-2 mb-2" style="font-size: 12px;">Powered By 
+			<span><img src="./logo.png" height="28" width="auto" /></span>
+		</p>
+		<p style="text-align: center; margin-top: 1rem; font-size: 12px;">
+			<b>Note:</b> Funds in Demat form or ELSS/Tax saving Mutual
+			Funds cannot be pledged
+		</p>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -374,7 +327,7 @@
 			// Add more rows
 			$(document).on("click", ".add-icon", function () {
 			  let newRow = $(
-			    '<tr><td><select class="scrip-select form-control" style="width: 100%"><option></option></select></td><td><input type="number" class="form-control" min="0" step="0.01" style="appearance: none; text-align: right" /></td><td class="text-right action-cell"><img src="remove.svg" class="remove-icon" alt="Remove icon"/></td></tr>'
+			    '<tr><td><select class="scrip-select form-control" style="width: 100%"><option></option></select></td><td><input type="number" class="form-control" min="0" step="0.01" style="appearance: none; text-align: right; min-width: 72px" /></td><td class="text-right action-cell"><img src="remove.svg" class="remove-icon" alt="Remove icon"/></td></tr>'
 			  );
 			  tableBody.append(newRow);
 			  initializeSelect2(newRow.find("select"));

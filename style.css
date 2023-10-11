@@ -1,13 +1,12 @@
 body {
   background-color: #fff;
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat";
   color: #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  font-size: 0.85rem;
+  font-size: 12px;
 }
 
 .loan-calculator {
@@ -31,23 +30,23 @@ p {
   color: #ed193b;
   font-size: 2.5rem;
   font-weight: bold;
-  margin: 1rem auto;
+  margin: 8px auto;
 }
 
 .sub-title {
   text-align: center;
-  margin: 0 1rem 1rem 1rem;
+  margin-bottom: 6px;
   font-size: 1rem;
 }
 
 .table-container {
-  width: 95%;
+  width: 102%;
   background-color: #fde8eb;
   border-radius: 10px;
   padding: 1rem 2rem;
   text-align: center;
   box-sizing: border-box;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto;
   padding: 2rem;
 }
 
@@ -55,6 +54,7 @@ table {
   border-collapse: collapse;
   width: 80vw;
   margin: 0 auto;
+  margin-bottom: 5px !important;
 }
 
 th {
@@ -64,7 +64,6 @@ th {
 
 .report-table {
   width: 100%;
-  margin-top: 2rem;
   margin-bottom: 1rem;
   font-size: 14px;
 }
@@ -82,13 +81,12 @@ th {
   border: 1px solid #fdb9c4;
   background: white;
   text-align: center;
-  font-weight: lighter;
   padding: 16px;
 }
 
 @media (max-width: 768px) {
   .sub-title {
-    font-size: 14px;
+    font-size: 12px;
   }
   .report-table {
     font-size: 12px;
@@ -175,9 +173,9 @@ input[type="number"] {
   width: 100%;
   background-color: transparent;
   border: 1px solid #000000 !important;
-  height: 40px;
+  height: 35px;
   max-width: 100%;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .select2-selection:focus-visible {
@@ -200,7 +198,7 @@ input[type="number"] {
 
 .select2-container .select2-selection--single .select2-selection__rendered {
   display: inline-block !important;
-  margin-top: 0.25rem;
+  margin-top: 2px;
 }
 
 .select2-container--default .select2-results__option[aria-selected="true"] {
@@ -242,13 +240,13 @@ input[type="number"] {
 .select2-container--default
   .select2-selection--single
   .select2-selection__arrow {
-  height: 40px;
+  height: 35px;
 }
 
 .select2-container--default
   .select2-selection--single
   .select2-selection__arrow {
-  width: 40px;
+  width: 35px;
 }
 
 .select2-container--default
@@ -259,13 +257,13 @@ input[type="number"] {
   border-width: 2px 2px 0 0;
   content: "";
   display: inline-block;
-  height: 10px;
-  left: 40%;
+  height: 8px;
+  left: 60%;
   position: relative;
-  top: 46%;
+  top: 45%;
   transform: rotate(135deg) translateY(100%);
   vertical-align: top;
-  width: 10px;
+  width: 8px;
   margin: 0 !important;
 }
 
@@ -297,11 +295,11 @@ input[type="number"] {
 .table > thead > tr > td,
 .table > thead > tr > th {
   border-top: unset;
-  padding: 8px 8px 8px 5px;
+  padding: 6px 6px 6px 0;
 }
 
 .table > tbody > tr > td:nth-child(2) {
-  padding: 12px 0 8px 0;
+  padding: 8px 0 8px 0;
 }
 
 .table th {
@@ -315,7 +313,7 @@ td {
 }
 
 .table > tbody > tr > td {
-  padding-top: 12px;
+  padding-top: 8px;
 }
 
 .table tr td:first-child {
@@ -325,7 +323,7 @@ td {
 }
 
 .table tr {
-  margin: 2rem 0;
+  margin: 0;
 }
 
 .table > thead > tr > th {
@@ -335,19 +333,20 @@ td {
 .add-icon-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 5px;
+  margin-top: -6px;
 }
 
 .add-icon {
-  width: 2rem;
-  height: 2rem;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
 }
 
 .remove-icon {
-  margin-top: 0.3rem;
-  width: 2rem;
-  height: 2rem;
+  margin-top: 6px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
 }
 
@@ -363,8 +362,7 @@ td {
   color: #000000;
   padding: 1.5rem;
   font-weight: 700;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
   font-size: 22px;
   display: flex;
   justify-content: space-between;
@@ -390,10 +388,10 @@ td {
   background-color: #ed193b;
   border: none;
   color: #ffffff;
-  padding: 8px 40px;
+  padding: 6px 14px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;
   font-weight: bold;
   margin: 0 0.5rem;
@@ -403,40 +401,40 @@ td {
   background-color: #ed193b;
   border: none;
   color: #ffffff;
-  padding: 8px 40px;
+  padding: 6px 14px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;
   font-weight: bold;
-  margin: 0 0.5rem;
+  margin: 10px 0.5rem;
 }
 
 @media (max-width: 400px) {
   .table-container {
-    padding: 2rem 1rem;
+    padding: 1rem 8px;
   }
   .card-title {
-    font-size: 1.5rem;
+    font-size: 16px;
   }
   .table th {
-    font-size: 14px;
+    font-size: 12px;
   }
   .select2-container--default
     .select2-selection--single
     .select2-selection__rendered {
-    width: 200px;
+    width: 178px;
   }
   input[type="number"] {
-    max-width: 5rem;
+    max-width: 4rem;
   }
   .action-cell {
     display: flex;
-    padding-left: 8px !important;
+    padding-left: 4px !important;
   }
   .max-loan-card {
-    padding: 1rem;
-    font-size: 16px;
+    padding: 8px;
+    font-size: 14px;
   }
 }
 
